@@ -31,7 +31,7 @@ app.post('/payload', (req, res) => {
   res.sendStatus(200);
 
   // test 'git pull' command
-  exec('git -C /home/pi/node/git-hook pull', execCallback);
+  exec('git -C /home/pi/node/parking-notifier pull', execCallback);
 
   console.log(res);
 });
