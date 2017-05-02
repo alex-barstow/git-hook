@@ -11,6 +11,7 @@ const execCallback = () => {
   console.log('command executed');
 };
 
+// Setup routes
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
   console.log('GET /');
