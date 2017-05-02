@@ -7,8 +7,13 @@ const exec = require('child_process').exec;
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-const execCallback = () => {
-  console.log('command executed');
+const execCallback = (error, stdout, stderr) => {
+  if (error) {
+    console.log(error);
+    return;
+  };
+
+  console.log(stdout);
 };
 
 // Setup routes
@@ -26,7 +31,7 @@ app.post('/payload', (req, res) => {
   res.sendStatus(200);
 
   // test 'git pull' command
-  exec('git pull', {cwd: '/home/pi/node/git-hook'}, execCallback);
+  exec('git -C /home/pi/node/git-hook pull', execCallback);
 
   console.log(res);
 });
