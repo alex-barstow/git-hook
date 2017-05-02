@@ -9,19 +9,19 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
-	console.log('GET /');
+  console.log('GET /');
 });
 
 app.get('/payload', (req, res) => {
   res.sendStatus(200);
-	console.log('get /payload');
+  console.log('GET /payload');
 });
 
-app.post('/payload', (req, res) {
+app.post('/payload', (req, res) => {
   res.sendStatus(200);
   console.log(res);
 });
 
 app.listen(5000, () => {
-	console.log('listening on port 5000...')
+  console.log('listening on port 5000...');
 });
